@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>io.mosip</groupId>
+		<artifactId>mosip-parent</artifactId>
+		<version>0.7.0-SNAPSHOT</version>
+	</parent>
+
+
+	<groupId>io.mosip.kernel</groupId>
+	<artifactId>kernel-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>kernel</name>
+	<description>Parent project of MOSIP Kernel</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.version>3.7.0</maven.compiler.version>
+		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+		<maven.war.plugin.version>3.1.0</maven.war.plugin.version>
+		<maven.surefire.plugin.version>2.9</maven.surefire.plugin.version>
+		<maven.jacoco.plugin.version>0.8.1</maven.jacoco.plugin.version>
+		<maven.sonar.plugin.version>3.2</maven.sonar.plugin.version>
+		<maven.javadoc.version>3.0.1</maven.javadoc.version>
+
+		<!-- Core -->
+		<spring.version>5.0.4.RELEASE</spring.version>
+		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
+		<spring.batch.version>4.0.1.RELEASE</spring.batch.version>
+		<spring-cloud-config.version>2.0.0.RELEASE</spring-cloud-config.version>
+
+		<!-- Miscellaneous -->
+		<javax.el-api.version>3.0.0</javax.el-api.version>
+		<glassfish.javax.el>2.2.6</glassfish.javax.el>
+		<javax.validation-api.version>2.0.1.Final</javax.validation-api.version>
+		<jackson.version>2.9.5</jackson.version>
+		<hibernate.validator.version>6.0.12.Final</hibernate.validator.version>
+		<modelmapper.version>2.1.1</modelmapper.version>
+		<jcl.to.slf4j.version>1.7.25</jcl.to.slf4j.version>
+		<json.schema.validator.version>2.2.10</json.schema.validator.version>
+		<aws.javasdk.version>1.11.368</aws.javasdk.version>
+
+		<!-- Swagger -->
+		<swagger.version>2.9.2</swagger.version>
+
+		<!-- Data Access -->
+		<eclipselink.version>2.5.0</eclipselink.version>
+		<mysql.connector.version>5.1.46</mysql.connector.version>
+		<h2.version>1.4.197</h2.version>
+		<postgresql.version>42.2.2</postgresql.version>
+
+		<!-- For Cache -->
+		<ignite.version>2.3.0</ignite.version>
+
+		<!--For Security -->
+		<bouncycastle.version>1.60</bouncycastle.version>
+
+		<!-- Support tools & utilities -->
+		<commons-math3>3.6.1</commons-math3>
+		<commons-lang3>3.7</commons-lang3>
+		<commons-io>2.6</commons-io>
+		<commons-codec>1.11</commons-codec>
+		<guava.version>19.0</guava.version>
+		<seventeam-otp.version>1.0.0</seventeam-otp.version>
+		<commons.beanutils.version>1.9.2</commons.beanutils.version>
+		<commons.configuration2.version>2.2</commons.configuration2.version>
+		<jackson.databind>2.9.6</jackson.databind>
+		<json.utility.version>20180130</json.utility.version>
+		<apache.httpcomponents.version>4.5.6</apache.httpcomponents.version>
+
+		<!-- Test & Logging -->
+		<junit.version>4.12</junit.version>
+		<logback.version>1.2.3</logback.version>
+		<slf4j.version>1.7.19</slf4j.version>
+		<mockito.version>1.10.19</mockito.version>
+		<powermock.version>1.7.4</powermock.version>
+		<powermock.beta.version>2.0.0-beta.5</powermock.beta.version>
+		<!-- Lombok -->
+		<lombok.version>1.16.18</lombok.version>
+		<!-- Jsch -->
+		<jsch.version>0.1.54</jsch.version>
+		<!--sshd server -->
+		<sshd.version>1.4.0</sshd.version>
+
+		<!--QR Code -->
+		<google.zxing.version>3.3.3</google.zxing.version>
+		<!-- itext core version -->
+		<itextcore.version>7.1.0</itextcore.version>
+		<!-- itext html2pdf version -->
+		<itexthtml2pdf.version>2.0.0</itexthtml2pdf.version>
+
+		<!-- Freemarker -->
+		<freemarker.version>2.3.23</freemarker.version>
+		<!-- Velocity -->
+		<velocity.version>1.7</velocity.version>
+		<velocity.tool.version>2.0</velocity.tool.version>
+		<!-- Orika -->
+		<datamapper.orika>1.5.2</datamapper.orika>
+
+		<sonar.coverage.exclusions>**/constant/**,**/config/**,**/httpfilter/**,**/cache/**,**/dto/**,**/entity/**,**/model/**,**/exception/**,**/repository/**,**/security/**,**/*Config.java,**/*BootApplication.java</sonar.coverage.exclusions>
+		<sonar.cpd.exclusions>**/dto/**,**/entity/**,**/config/**</sonar.cpd.exclusions>
+	</properties>
+
+	<modules>
+		<module>kernel-core</module>
+		<module>kernel-auditmanager-api</module>
+		<module>kernel-logger-logback</module>
+		<module>kernel-dataaccess-hibernate</module>
+		<module>kernel-idgenerator-prid</module>
+		<module>kernel-idgenerator-vid</module>
+		<module>kernel-idgenerator-tokenid</module>
+		<module>kernel-idgenerator-machineid</module>
+		<module>kernel-idgenerator-regcenterid</module>
+		<module>kernel-idgenerator-tspid</module>
+		<module>kernel-idgenerator-rid</module>
+		<module>kernel-idvalidator-prid</module>
+		<module>kernel-idvalidator-rid</module>
+		<module>kernel-idvalidator-uin</module>
+		<module>kernel-idvalidator-vid</module>
+		<module>kernel-datavalidator</module>
+		<module>kernel-jsonvalidator</module>
+		<module>kernel-virusscanner-clamav</module>
+		<module>kernel-keygenerator-bouncycastle</module>
+		<module>kernel-crypto-jce</module>
+		<module>kernel-keymanager-softhsm</module>
+		<module>kernel-packetuploader-sftp-jsch</module>
+		<module>kernel-templatemanager-velocity</module>
+		<module>kernel-pdfgenerator-itext</module>
+		<module>kernel-datamapper-orika</module>
+		<module>kernel-qrcodegenerator-zxing</module>
+
+		<module>kernel-masterdata-service</module>
+		<module>kernel-auditmanager-service</module>
+		<module>kernel-otpmanager-service</module>
+		<module>kernel-emailnotification-service</module>
+		<module>kernel-smsnotification-service</module>
+		<module>kernel-keymanager-service</module>
+		<module>kernel-cryptomanager-service</module>
+		<module>kernel-idrepo-service</module>
+		<module>kernel-syncdata-service</module>
+		<module>kernel-config-server</module>
+
+		<module>kernel-idgenerator-uin</module>
+		<module>kernel-packetserver-http</module>
+		<module>kernel-idvalidator</module>
+		<!-- <module>kernel-templatemanager-freemarker</module> -->
+		<!-- <module>kernel-packetserver-sftp</module> -->
+		<!-- <module>kernel-batch-framework</module> -->
+		<!-- <module>kernel-batch-server</module> -->
+		<!--<module>kernel-crypto-bouncycastle</module> -->
+
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${jcl.to.slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${jcl.to.slf4j.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.version}</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven.jar.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Project-Name>${project.name}</Project-Name>
+								<Project-Version>${project.version}</Project-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Local-Build-Date>${maven.build.timestamp}</Local-Build-Date>
+								<Build-Number>${env.BUILD_NUMBER}</Build-Number>
+								<Build-Date>${env.BUILD_ID}</Build-Date>
+								<Build-URL>${env.BUILD_URL}</Build-URL>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven.war.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Project-Name>${project.name}</Project-Name>
+								<Project-Version>${project.version}</Project-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Local-Build-Date>${maven.build.timestamp}</Local-Build-Date>
+								<Build-Number>${env.BUILD_NUMBER}</Build-Number>
+								<Build-Date>${env.BUILD_ID}</Build-Date>
+								<Build-URL>${env.BUILD_URL}</Build-URL>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven.surefire.plugin.version}</version>
+					<configuration>
+						<skip>false</skip>
+						<useFile>false</useFile>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${maven.jacoco.plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>${maven.sonar.plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<id>agent-for-ut</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>agent-for-it</id>
+						<goals>
+							<goal>prepare-agent-integration</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.version}</version>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
